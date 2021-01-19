@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="footballApp.Pages.About" BackgroundImageSource="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Football_pitch.svg/1200px-Football_pitch.svg.png"
+             Title="About">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label x:Name="lblRMR" Text="Razvoj mobilnih rešitev" TextColor="Black" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" />
+            <Label x:Name="lblSmer" Text="ITK VS" TextColor="Black" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" />
+            <Label x:Name="lblVerzija" Text="Version 1.0" TextColor="Black" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" />
+            <Label x:Name="lblIme" Text="2021 © Gregor Bračko, Samo Farič, Simon Šerbetar" TextColor="Black" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

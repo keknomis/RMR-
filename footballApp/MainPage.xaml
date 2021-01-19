@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:footballApp"
+             x:Class="footballApp.MainPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <ImageButton Source="https://freeiconshop.com/wp-content/uploads/edd/menu-rounded-solid.png" BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30" HorizontalOptions="StartAndExpand" Clicked="btnMenu_Clicked" />
+            <Label x:Name="lblSelectedDate" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontAttributes="Bold" FontSize="Medium"></Label>
+            <ImageButton Source="https://iconarchive.com/download/i103365/paomedia/small-n-flat/calendar.ico" WidthRequest="40" HeightRequest="40" HorizontalOptions="EndAndExpand"  Clicked="ToolbarItem_Clicked" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <DatePicker x:Name="datePicker" IsVisible="false" Format="D" Margin="30, 0, 30, 0" DateSelected="datePicker_DateSelected" />
+            <Label x:Name="lblIzpis" Margin="10" HorizontalTextAlignment="Center" TextColor="Red"></Label>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1">
+
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                <Image x:Name="imgFav" Source="https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/star-icon.png" HeightRequest="20" WidthRequest="20" />
+                <Label x:Name="lblFavLogo" Text="My games"/>
+            </StackLayout>
+
+            <BoxView x:Name="bv0" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+            <ListView x:Name="listFavMatch" ItemsSource="{Binding listLivescore}" ItemTapped="listFavMatch_ItemTapped" HasUnevenRows="True" IsVisible="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="{Binding team_home_badge}"></Image>
+                                    <Label Text="{Binding match_hometeam_name}" WidthRequest="85" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding MatchStatus}" WidthRequest="115" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding match_awayteam_name}" VerticalTextAlignment="Center" />
+                                    <Image Source="{Binding team_away_badge}"></Image>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+            <BoxView x:Name="bv1" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                <Image x:Name="imgEng" Source="https://flagpedia.net/data/flags/emoji/facebook/256x256/gb-eng.png" HeightRequest="20" WidthRequest="20" />
+                <Label x:Name="lblEngLogo" Text="Championship"/>
+            </StackLayout>
+
+            <BoxView x:Name="bv2" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+            <ListView x:Name="listLivescoreEng" ItemsSource="{Binding listLivescore}" ItemTapped="listLivescoreEng_ItemTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="{Binding team_home_badge}"></Image>
+                                    <Label Text="{Binding match_hometeam_name}" WidthRequest="85" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding MatchStatus}" WidthRequest="115" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding match_awayteam_name}" VerticalTextAlignment="Center" />
+                                    <Image Source="{Binding team_away_badge}"></Image>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <BoxView x:Name="bv3" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0">
+                <Image x:Name="imgFra" Source="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/france.png" HeightRequest="20" WidthRequest="20" />
+                <Label x:Name="lblFraLogo" Text="Ligue 2"/>
+            </StackLayout>
+
+            <BoxView x:Name="bv4" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+            <ListView x:Name="listLivescoreFra" ItemsSource="{Binding listLivescore}" ItemTapped="listLivescoreFra_ItemTapped" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="{Binding team_home_badge}"></Image>
+                                    <Label Text="{Binding match_hometeam_name}" WidthRequest="85" VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding MatchStatus}" WidthRequest="115" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding match_awayteam_name}" VerticalTextAlignment="Center" />
+                                    <Image Source="{Binding team_away_badge}"></Image>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <BoxView x:Name="bv5" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" HorizontalOptions="Fill" />
+
+        </StackLayout>
+
+    </Grid>
+
+
+</ContentPage>

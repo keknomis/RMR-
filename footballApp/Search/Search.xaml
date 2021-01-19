@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="footballApp.Pages.Search.Search"
+			 Visual="Material"
+             Title="Search">
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Margin="0,0,0,0">
+                    <Picker x:Name="picker" Title="What do you want to search" 
+                            TitleColor="Black" HorizontalOptions="Fill" Visual="Material"
+                             SelectedIndexChanged="picker_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Players</x:String>
+                                <x:String>Clubs</x:String>
+                                <x:String>Leagues</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </StackLayout>
+
+                <!-- search bar   -->
+
+                <StackLayout Margin="0,0,0,0">
+                    <SearchBar x:Name="searchBtn"
+							   CancelButtonColor="Red"
+							   PlaceholderColor="Black"
+							   TextColor="DarkGray"
+							   VerticalTextAlignment="Center"
+							   HorizontalTextAlignment="Center"
+							   FontSize="Medium"
+							   FontAttributes="Italic"
+							   SearchButtonPressed="searchBtn_SearchButtonPressed"
+                               
+							   Visual="Material"/>
+
+                    <Label x:Name="lblNotFound" HorizontalTextAlignment="Center" TextColor="Red"></Label>
+
+                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListView x:Name="lstClubs" ItemsSource="{Binding listClubs}"
+                              HasUnevenRows="True" IsVisible="false"
+                              ItemTapped="lstClubs_ItemTapped" Visual="Material"
+                              HorizontalOptions="Center"
+                              Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0">
+                                                <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="1*"/>
+                                                        <ColumnDefinition Width="1*"/>
+                                                        <ColumnDefinition Width="2*"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image Source="{Binding team_badge}" WidthRequest="50" HeightRequest="50" Grid.Column="1" HorizontalOptions="Start" />
+                                                    <Label Text="{Binding team_name}" TextColor="Black" VerticalTextAlignment="Center" HeightRequest="50" Grid.Column="2" />
+                                                    <Button x:Name="btnAddClub" Text="+" FontSize="Large" FontAttributes="Bold"
+													Clicked="btnAddClub_Clicked" CommandParameter="{Binding .}" WidthRequest="50" HorizontalOptions="EndAndExpand" Grid.Column="3" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <ListView x:Name="listClubPlayers"                        
+                              IsVisible="false"
+                              Visual="Material"
+                             HasUnevenRows="True"
+                              Grid.Column="2">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" Spacing="2" Padding="5" Margin="0, 0, 0, 0"  HorizontalOptions="CenterAndExpand">
+                                            <Label Text="{Binding player_name, StringFormat='Name: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_number, StringFormat='Kit number {0}'}" TextColor="Black" Grid.Row="0" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_country, StringFormat='Country of origin: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_type, StringFormat='Position: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_age, StringFormat='Age: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_match_played, StringFormat='Games played: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_goals, StringFormat='Goals: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_yellow_cards, StringFormat='Yellow: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding player_red_cards, StringFormat='Reds: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                    <ListView x:Name="listPlayers"  HasUnevenRows="True" IsVisible="false" Visual="Material" HorizontalOptions="Center">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" Spacing="2" Padding="5">
+                                        <Label Text="{Binding player_name, StringFormat='Name: {0}'}" TextColor="Black" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding player_number, StringFormat='Kit number {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_country, StringFormat='Country of origin: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_type, StringFormat='Position: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_age, StringFormat='Age: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_match_played, StringFormat='Games played: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_goals, StringFormat='Goals: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_yellow_cards, StringFormat='Yellow: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding player_red_cards, StringFormat='Reds: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding team_name, StringFormat='Plays for: {0}'}" TextColor="Black" HorizontalTextAlignment="Center" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <ListView x:Name="listLeagues" HasUnevenRows="True" IsVisible="false" ItemTapped="listLeagues_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                            <Image Source="{Binding league_logo}" WidthRequest="50" HeightRequest="50" />
+                                            <Label Text="{Binding league_name}" TextColor="Black" VerticalTextAlignment="Center" HeightRequest="50" />
+                                            <Button x:Name="btnAddLeague"
+                                                    Text="+"
+                                                    FontSize="Large"
+                                                    FontAttributes="Bold"
+                                                    Clicked="btnAddLeague_Clicked"
+                                                    CommandParameter="{Binding .}"
+                                                    WidthRequest="50"
+                                                    HorizontalOptions="EndAndExpand" />
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

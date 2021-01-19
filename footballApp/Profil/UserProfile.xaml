@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:footballApp"
+             x:Class="footballApp.Pages.UserProfile"
+             Title="Profile">
+    <ContentPage.Content>
+        <Grid Padding="10" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="20"/>
+                
+                <RowDefinition Height="20"/>
+                
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                
+                <RowDefinition Height="15"/>
+                
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+
+                <RowDefinition Height="15"/>
+
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                <Image Grid.Column="1" Grid.Row="0" x:Name="profilePicture" Source="{local:ImageResource footballApp.Embedded.icon.png}" HeightRequest="100" WidthRequest="100"/>
+            
+                <Label Grid.Column="1" Grid.Row="1" x:Name="userEmail" TextColor="#006385" HorizontalOptions="Center"/>
+
+            <Label Grid.Column="1" Grid.Row="3" TextColor="#006385" FontSize="Large" Text="Leagues" HorizontalOptions="Center" Margin="10,0,0,0" />
+            <Button Grid.Column="1" Grid.Row="4" x:Name="btnMyLeagues" Text="My leagues" Clicked="btnMyLeagues_Clicked" BorderRadius="10" BackgroundColor="#006385"></Button>
+            <Button Grid.Column="1" Grid.Row="5" x:Name="btnAddLeague" Text="Add leagues" Clicked="btnAddLeague_Clicked" BorderRadius="10" BackgroundColor="ForestGreen"></Button>
+
+            <Label Grid.Column="1" Grid.Row="7" TextColor="#006385" FontSize="Large" Text="Clubs" HorizontalOptions="Center" />
+            <Button Grid.Column="1" Grid.Row="8" x:Name="btnMyClubs" Text="My clubs" Clicked="btnMyClubs_Clicked" BorderRadius="10" BackgroundColor="#006385"></Button>
+            <Button Grid.Column="1" Grid.Row="9" x:Name="btnAddClubs" Text="Add clubs" Clicked="btnAddClubs_Clicked" BorderRadius="10" BackgroundColor="ForestGreen"></Button>
+
+            <Label Grid.Column="1" Grid.Row="11" TextColor="#006385" FontSize="Large" Text="Options" HorizontalOptions="Center" />
+            <Button Grid.Column="1" Grid.Row="12" x:Name="btnEditProfile" Text="Edit profile" Clicked="btnEditProfile_Clicked" BorderRadius="10" BackgroundColor="YellowGreen"></Button>
+            <Button Grid.Column="1"  Grid.Row="13" x:Name="btnDeleteAccount" Clicked="btnDeleteAccount_Clicked" Text="Delete account" BorderRadius="10" BackgroundColor="OrangeRed"></Button>
+        </Grid>        
+    </ContentPage.Content>
+</ContentPage>

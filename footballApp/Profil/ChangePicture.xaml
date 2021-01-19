@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="footballApp.Pages.Profil.ChangePicture"
+             Title="Change profile picture">
+    <ContentPage.Content>
+        <ListView x:Name="lstClubs" ItemsSource="{Binding listClubs}" ItemTapped="lstClubs_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <Image Source="{Binding team_badge}" />
+                                <Label Text="{Binding team_name}" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

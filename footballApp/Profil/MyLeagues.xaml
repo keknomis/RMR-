@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="footballApp.Pages.Profil.MyLeagues"
+             xmlns:local="clr-namespace:footballApp"
+             Title="My leagues">
+    <ContentPage.Content>
+        <ListView x:Name="lstMyLeagues" ItemsSource="{Binding listMyLeagues}" ItemTapped="lstMyLeagues_ItemTapped" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Margin="5,5,5,5" Orientation="Horizontal" HeightRequest="100">
+                                <Image Source="{Binding league_logo}" WidthRequest="100" HeightRequest="100"></Image>
+                                <Label Text="{Binding league_name}" TextColor="Black" VerticalTextAlignment="Center" HeightRequest="100"/>
+                                <Button x:Name="btnDeleteLeague" ImageSource="{local:ImageResource footballApp.Embedded.minus.png}" Padding="0,0,0,3" FontSize="Large" FontAttributes="Bold" Clicked="btnDeleteLeague_Clicked" CommandParameter="{Binding .}" WidthRequest="50" BackgroundColor="IndianRed" HorizontalOptions="EndAndExpand"></Button>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

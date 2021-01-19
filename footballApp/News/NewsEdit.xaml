@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="footballApp.Pages.News.NewsEdit"
+             Title="News edit">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 0 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 1 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 2 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 3 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 4 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 5 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 6 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 7 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 8 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 9 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 10 -->
+                <RowDefinition Height="40"></RowDefinition>
+                <!-- 11 -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#006385" Text="Edit title:"></Label>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="naslov" Text="{Binding news.Naslov}"></Entry>
+            <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#006385" Text="Edit content:"></Label>
+            <Editor Grid.RowSpan="4" Grid.Row="4" Grid.Column="1" x:Name="vsebina" Text="{Binding news.Vsebina}"></Editor>
+            <Label Grid.Row="9" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#006385" Text="Edit url:"></Label>
+            <Entry Grid.Row="10" Grid.Column="1" x:Name="url" Text="{Binding news.Url}"></Entry>
+            <Button Grid.Row="11" Grid.Column="1" Clicked="btnPosodobi_Clicked" x:Name="btnPosodobi" Text="Update"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

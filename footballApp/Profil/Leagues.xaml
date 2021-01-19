@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="footballApp.Profil.Leagues"
+             Title="Add leagues">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <ListView x:Name="lstLeagues" ItemsSource="{Binding listClubs}" ItemTapped="lstLeagues_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                    <Image Source="{Binding league_logo}" />
+                                    <Label Text="{Binding league_name}" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
