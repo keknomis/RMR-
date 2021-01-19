@@ -1,4 +1,4 @@
-# ## Table of contents
+## Table of contents
 * [General info](#general-info)
 * [Dependencies](#technologies)
 * [Setup](#setup)
